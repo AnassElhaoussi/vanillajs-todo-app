@@ -1,6 +1,9 @@
 
+/* This part is dedicated to whole body styling */
+
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&family=League+Gothic&family=Lexend+Peta:wght@100;200;300;400;500;600;700;800;900&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Smooch+Sans:wght@100;200;300;400;500;600;700;800;900&family=Staatliches&display=swap');
 @import './variables';
+
 
 @mixin flexCenter {
     display: flex;
@@ -25,6 +28,7 @@ body {
     @include flexCenter();
     height: 100vh;
     background-color: $backgroundColor;
+
 }
 
 .main-section {
@@ -40,16 +44,30 @@ body {
 
 .input-section {
     @include flexColumn();
-    gap: 1.5rem;
+    gap: 1.7rem;
     border-bottom: 2px solid $borderColor;
-    padding-bottom: 1rem;
-    
-    input {
-        padding: 0.4rem 3rem;
-        outline: none;
-        border: 1px solid $borderColor;
-        border-radius: 0.3rem;
+    padding: 1rem 0;
+
+    .inputfield {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        i {
+            cursor: pointer;
+        }
+
+        input {
+            padding: 0.4rem 3rem;
+            outline: none;
+            border: 1px solid $borderColor;
+            border-radius: 0.3rem;
+        }
     }
+    
+    
+
+    
 }
 
 .types {
@@ -79,7 +97,8 @@ body {
 }
 
 .tasks-section {
-    @include flexColumn();
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
     
     .task {
@@ -97,8 +116,38 @@ body {
         .dots {
             margin-left: 2rem;
         }
+
+        .mini-card {
+            display: none;
+            flex-direction: column;
+            gap: 0.3rem;
+            background-color: $cardColor;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            padding: 0.8rem;
+            border-radius: 0.3rem;
+            position: absolute;
+            right: 32%;
+
+        .mini-card.active {
+            display: flex;
+        }
+
+            .edit, .delete {
+                display: flex;
+                align-items: center;
+                gap: 0.8rem;
+                cursor: pointer;
+
+                i {
+                    font-size: 0.8rem;
+
+                }
+            }
+        }
     }
 }
+
+
 
 
 

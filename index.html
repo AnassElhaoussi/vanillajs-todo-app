@@ -13,12 +13,15 @@
     <section class="main-section">
         <div class="card">
             <div class="input-section">
-                <input type="text" placeholder="Add a new task" id="input-field">
+                <div class="inputfield">
+                  <i class="fa-solid fa-align-left"></i>
+                  <input type="text" placeholder="Add a new task" id="input-field">
+                </div>
                 <div class="types">
                     <div class="choices">
-                        <p class="all">All</h3>
-                        <p class="pending">Pending</p>
-                        <p class="completed">Completed</p>
+                        <p id="all">All</h3>
+                        <p id="pending">Pending</p>
+                        <p id="completed">Completed</p>
                     </div>
                     <div class="clr-btn">
                         <button>Clear All</button>
@@ -26,30 +29,13 @@
                 </div>
             </div>
             <div class="tasks-section">
-                <div class="tasks">
-                    <div class="task">
-                        <div class="check-square"><i class="fa-solid fa-square"></i></div>
-                        <p>Renew gym membership</p>
-                        <div class="dots"><i class="fa-solid fa-ellipsis"></i></div>
-                    </div>
-                </div>
-                <div class="tasks">
-                    <div class="task">
-                        <div class="check-square"><i class="fa-solid fa-square"></i></div>
-                        <p>Renew gym membership</p>
-                        <div class="dots"><i class="fa-solid fa-ellipsis"></i></div>
-                    </div>
-                </div>
-                <div class="tasks">
-                    <div class="task">
-                        <div class="check-square"><i class="fa-solid fa-square"></i></div>
-                        <p>Renew gym membership</p>
-                        <div class="dots"><i class="fa-solid fa-ellipsis"></i></div>
-                    </div>
-                </div>
+                    
+                    
             </div>
             
         </div>
     </section>
+
+    <script src="app.js"></script>
 </body>
 </html>
