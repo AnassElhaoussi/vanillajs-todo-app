@@ -39,7 +39,7 @@ body {
 .card {
     padding: 1.4rem;
     @include flexColumn();
-    gap: 1rem
+    gap: 1rem;
 }
 
 .input-section {
@@ -97,51 +97,64 @@ body {
 }
 
 .tasks-section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+   @include flexColumn();
+   gap: 1rem;
     
-    .task {
-        border-bottom: 1.3px solid $borderColor;
-        padding: 1rem 0;
+    
+}
+
+.task {
+    border-bottom: 1.3px solid $borderColor;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+
+    i {
+        color: $buttonColor;
+        cursor: pointer;
+    }
+
+    .active {
+        display: none;
+    }
+
+    .notactive {
         display: flex;
-        align-items: center;
-        gap: 1rem;
+    }
 
-        i {
-            color: $buttonColor;
-            cursor: pointer;
-        }
+    
 
-        .dots {
-            margin-left: 2rem;
-        }
+    .dots {
+        position: absolute;
+        right: 10%;
+    }
 
-        .mini-card {
-            display: none;
-            flex-direction: column;
-            gap: 0.3rem;
-            background-color: $cardColor;
-            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-            padding: 0.8rem;
-            border-radius: 0.3rem;
-            position: absolute;
-            right: 32%;
+    .mini-card {
+        display: none;
+        flex-direction: column;
+        gap: 0.3rem;
+        background-color: $cardColor;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        padding: 0.8rem;
+        border-radius: 0.3rem;
+        position: absolute;
+        right: 32%;
 
-        .mini-card.active {
+    .mini-card.active {
+        display: flex;
+    }
+
+        .edit, .delete {
             display: flex;
-        }
+            align-items: center;
+            gap: 0.8rem;
+            cursor: pointer;
 
-            .edit, .delete {
-                display: flex;
-                align-items: center;
-                gap: 0.8rem;
-                cursor: pointer;
+            i {
+                font-size: 0.8rem;
 
-                i {
-                    font-size: 0.8rem;
-
-                }
             }
         }
     }

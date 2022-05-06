@@ -113,7 +113,7 @@ body {
   gap: 1rem;
 }
 
-.tasks-section .task {
+.task {
   border-bottom: 1.3px solid #dfdfdf;
   padding: 1rem 0;
   display: -webkit-box;
@@ -123,18 +123,30 @@ body {
       -ms-flex-align: center;
           align-items: center;
   gap: 1rem;
+  position: relative;
 }
 
-.tasks-section .task i {
+.task i {
   color: #8e15ff;
   cursor: pointer;
 }
 
-.tasks-section .task .dots {
-  margin-left: 2rem;
+.task .active {
+  display: none;
 }
 
-.tasks-section .task .mini-card {
+.task .notactive {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.task .dots {
+  position: absolute;
+  right: 10%;
+}
+
+.task .mini-card {
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -150,13 +162,13 @@ body {
   right: 32%;
 }
 
-.tasks-section .task .mini-card .mini-card.active {
+.task .mini-card .mini-card.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.tasks-section .task .mini-card .edit, .tasks-section .task .mini-card .delete {
+.task .mini-card .edit, .task .mini-card .delete {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -167,7 +179,7 @@ body {
   cursor: pointer;
 }
 
-.tasks-section .task .mini-card .edit i, .tasks-section .task .mini-card .delete i {
+.task .mini-card .edit i, .task .mini-card .delete i {
   font-size: 0.8rem;
 }
 
