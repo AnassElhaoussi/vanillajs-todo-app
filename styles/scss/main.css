@@ -87,7 +87,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 0.8rem;
+  gap: 1.5rem;
 }
 
 .types .choices p {
@@ -115,6 +115,10 @@ body {
   gap: 1rem;
 }
 
+.tasks-section.notactive {
+  display: none;
+}
+
 .task {
   border-bottom: 1.3px solid #dfdfdf;
   padding: 1rem 0;
@@ -124,7 +128,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 1rem;
+  gap: 4rem;
   position: relative;
 }
 
@@ -174,7 +178,7 @@ body {
 .task .dots {
   position: absolute;
   right: 10%;
-  top: 20%;
+  top: 26%;
   z-index: 1;
 }
 
@@ -196,6 +200,14 @@ body {
 
 .task .task-menu i {
   font-size: 0.8rem;
+}
+
+.checked-tasks {
+  display: none;
+}
+
+.checked-tasks.active {
+  display: block;
 }
 
 /* Here I'm declaring some variables for each part of the layout*/

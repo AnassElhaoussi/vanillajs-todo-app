@@ -3,14 +3,16 @@ const todoBtn = document.querySelector('.inputfield i')
 const inputField = document.querySelector('.inputfield input')
 const taskBox = document.querySelector('.tasks-section')
 const clearButton = document.querySelector('.clr-btn button')
-const squareDiv = document.querySelectorAll('.square')
-const checkButton = document.querySelectorAll('#btn-1')
-const checkedButton = document.querySelectorAll('#btn-2')
 const tasks = document.querySelector('.tasks-section')
 const dots = document.querySelector('.dots')
 const miniCard = document.querySelector('.mini-card')
 const deleteBtn = document.querySelector('.delete')
+const checkedChoice = document.querySelector('#checked')
+const checkedTasksContainer = document.querySelector('.checked-tasks')
+const displayAll  = document.querySelector('#all')
+
 let todoList = JSON.parse(localStorage.getItem('todo-list'))
+
 
 let isEdited = false
 let taskId
@@ -28,9 +30,9 @@ const displayTodo = () => {
             li += `
                         <div class="task">
                             
-                        <label for="${id}">
-                        <input type="checkbox" id="${id} onclick="checkBoxStorage()">
-                        <p>${todo.name}</p>
+                        <label for="${id}"  onclick="checkedStorage('${todo}'})">
+                            <input type="checkbox" id="${id}">
+                            <p>${todo.name}</p>
                         </label>
             
                         <div class="settings">
@@ -98,6 +100,16 @@ clearButton.addEventListener('click', () => {
     localStorage.setItem('todo-list', JSON.stringify(todoList))
 
     displayTodo()
+})
+
+checkedChoice.addEventListener('click', () => {
+    checkedTasksContainer.classList.add('active')
+    tasks.classList.add('notactive')
+})
+
+displayAll.addEventListener('click', () => {
+    checkedTasksContainer.classList.remove('active')
+    tasks.classList.remove('notactive')
 })
 
 
