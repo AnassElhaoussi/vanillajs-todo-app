@@ -78,7 +78,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 2.5rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .types .choices {
@@ -131,23 +133,20 @@ body {
   cursor: pointer;
 }
 
-.task .active {
-  display: none;
-}
-
-.task .notactive {
+.task label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
 }
 
-.task .dots {
-  position: absolute;
-  right: 10%;
-}
-
-.task .mini-card {
-  display: none;
+.task .task-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -159,27 +158,43 @@ body {
   padding: 0.8rem;
   border-radius: 0.3rem;
   position: absolute;
-  right: 32%;
+  right: 10%;
+  top: 40%;
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  z-index: 999;
 }
 
-.task .mini-card .mini-card.active {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.task .dots {
+  position: absolute;
+  right: 10%;
+  top: 20%;
+  z-index: 1;
 }
 
-.task .mini-card .edit, .task .mini-card .delete {
+.task .settings:hover .task-menu {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.task .task-menu .edit, .task .task-menu .delete {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 0.8rem;
+  gap: 0.6rem;
   cursor: pointer;
 }
 
-.task .mini-card .edit i, .task .mini-card .delete i {
+.task .task-menu i {
   font-size: 0.8rem;
 }
 

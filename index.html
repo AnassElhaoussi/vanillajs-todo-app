@@ -20,8 +20,6 @@
                 <div class="types">
                     <div class="choices">
                         <p id="all">All</h3>
-                        <p id="pending">Pending</p>
-                        <p id="completed">Completed</p>
                     </div>
                     <div class="clr-btn">
                         <button>Clear All</button>
@@ -30,14 +28,15 @@
             </div>
             <div class="tasks-section">
                     <div class="task">
-                        <div class="square">
-                            <i id="btn-1" class="fa-solid fa-square"></i>
-                            <i id="btn-2" class="fa-solid fa-square-check active"></i>
-                        </div>
-                        
-                        <p>Renew gym membership</p>
-                        <div class="dots"><i class="fa-solid fa-ellipsis"></i></div>
-                        <div class="mini-card">
+                        <label for="${id}">
+                        <input type="checkbox" id="${id}">
+                        <p>Name</p>
+                        </label>
+                            
+                                
+                        <div class="settings">
+                            <div class="dots"><i class="fa-solid fa-ellipsis"></i></div>
+                            <div class="task-menu">
                             <div class="edit">
                                 <i class="fa-solid fa-pen"></i>
                                 <p>Edit</p>
@@ -45,6 +44,7 @@
                             <div class="delete">
                                 <i class="fa-solid fa-trash"></i>
                                 <p>Delete</p>
+                            </div>
                             </div>
                         </div>
                     </div>
