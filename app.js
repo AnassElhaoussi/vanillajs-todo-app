@@ -52,10 +52,8 @@ const displayTodo = () => {
         });  
         
         tasks.innerHTML = li
-        
 
-    }
-    
+    }   
 }
 
 displayTodo()
@@ -78,16 +76,15 @@ todoBtn.addEventListener('click', () => {
 
        else {
            todoList[taskId].name = inputField.value
+           localStorage.setItem('todo-list', JSON.stringify(todoList))
            inputField.value = ""
-
            isEdited = false
        }
 
        displayTodo()
 
-       
-       
-        
+
+
     
     }
 })
