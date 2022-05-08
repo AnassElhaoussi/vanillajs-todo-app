@@ -10,6 +10,8 @@ const deleteBtn = document.querySelector('.delete')
 const checkedChoice = document.querySelector('#checked')
 const checkedTasksContainer = document.querySelector('.checked-tasks')
 const displayAll  = document.querySelector('#all')
+const checkBox = document.querySelector('label input')
+
 
 let todoList = JSON.parse(localStorage.getItem('todo-list'))
 
@@ -25,15 +27,15 @@ const displayTodo = () => {
         
         let li = ""
         todoList.forEach((todo, id) => {
-            li += `
-                        <div class="task">
+            li += `   
+                    <div class="task">
                             
-                        <label for="${id}">
+                        <label id="${id}">
                             <input type="checkbox" onclick="checkTodo(${id})" id="${id}">
                             <p>${todo.name}</p>
                         </label>
             
-                        <div class="settings">
+                        <div class="settings" id="${id}">
                           <div class="dots"><i class="fa-solid fa-ellipsis"></i></div>
                           <div class="task-menu">
                           <div class="edit" onclick="editTask(${id},'${todo.name}')">
@@ -44,9 +46,11 @@ const displayTodo = () => {
                             <i class="fa-solid fa-trash"></i>
                             <p>Delete</p>
                           </div>
-                        </div>
+                           </div>
                         </div>
                     </div>
+
+
             `
             
         });
@@ -112,6 +116,47 @@ const editTask = (id, taskName) => {
     taskId = id
     isEdited = true
 }
+
+    const checkTodo = (id) => {
+
+        todoList[id].type = 'checked'
+        localStorage.setItem('todo-list', JSON.stringify(todoList))
+
+        if(todoList[id].type == 'checked'){
+            
+            removeCheckedTodo(id)
+
+            checkedChoice.addEventListener('click', function() {
+                displayCheckedTodo(id)
+                
+            })
+        }
+
+       
+
+    
+ }
+
+
+const removeCheckedTodo = removedId => {
+    
+    const label = document.getElementById(`${removedId}`)
+    setTimeout(() => {
+        label.parentElement.style.display = "none"
+    }, 2000)
+    
+
+}
+
+const displayCheckedTodo = checkedId => {
+    
+    todoList.splice(0, todoList.length)
+    localStorage.setItem('todo-list', JSON.stringify(todoList))
+    displayTodo()    
+}
+
+
+
 
 
 

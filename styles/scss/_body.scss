@@ -124,11 +124,6 @@ body {
         gap: 1rem;
     }
 
-    .active {
-        display: none;
-
-    }
-
     .task-menu {
         display: flex;
         flex-direction: column;
@@ -175,6 +170,7 @@ body {
     
 }
 
+
 .checked-tasks {
     display: none;
 }
@@ -182,13 +178,3 @@ body {
 .checked-tasks.active {
     display: block;
 }
-
-
-
-
-
-
-
-
-
-
