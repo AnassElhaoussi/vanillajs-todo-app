@@ -122,14 +122,8 @@ const editTask = (id, taskName) => {
         todoList[id].type = 'checked'
         localStorage.setItem('todo-list', JSON.stringify(todoList))
 
-        if(todoList[id].type == 'checked'){
-            
+        if(todoList[id].type == 'checked'){    
             removeCheckedTodo(id)
-
-            checkedChoice.addEventListener('click', function() {
-                displayCheckedTodo(id)
-                
-            })
         }
 
        
@@ -138,24 +132,16 @@ const editTask = (id, taskName) => {
  }
 
 
-const removeCheckedTodo = removedId => {
-    
-    const label = document.getElementById(`${removedId}`)
-    setTimeout(() => {
-        label.parentElement.style.display = "none"
-    }, 2000)
-    
-
-}
-
-const displayCheckedTodo = checkedId => {
-    
-    todoList.splice(0, todoList.length)
+const removeCheckedTodo = id => {
+    todoList.splice(todoList[id], 1)
     localStorage.setItem('todo-list', JSON.stringify(todoList))
-    displayTodo()    
+
+    setTimeout(() => {
+        displayTodo()
+    }, 3000)
+
 }
-
-
+ 
 
 
 
