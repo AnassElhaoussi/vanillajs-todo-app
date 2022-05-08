@@ -15,13 +15,11 @@ let todoList = JSON.parse(localStorage.getItem('todo-list'))
 
 
 let isEdited = false
-let taskId
+let taskId;
 
 
 
 const displayTodo = () => {
-    
-    
 
     if(todoList){
         
@@ -30,8 +28,8 @@ const displayTodo = () => {
             li += `
                         <div class="task">
                             
-                        <label for="${id}"  onclick="checkedStorage('${todo}'})">
-                            <input type="checkbox" id="${id}">
+                        <label for="${id}">
+                            <input type="checkbox" onclick="checkTodo(${id})" id="${id}">
                             <p>${todo.name}</p>
                         </label>
             
@@ -51,7 +49,8 @@ const displayTodo = () => {
                     </div>
             `
             
-        });  
+        });
+        
         
         tasks.innerHTML = li
 
@@ -71,46 +70,34 @@ todoBtn.addEventListener('click', () => {
             
             let userTaskInfo = {name: inputVal, type:'pending'}
             todoList.push(userTaskInfo)
-            inputField.value = ""
-            localStorage.setItem('todo-list', JSON.stringify(todoList))
+            
+            
             
        }
 
+
        else {
            todoList[taskId].name = inputField.value
-           localStorage.setItem('todo-list', JSON.stringify(todoList))
-           inputField.value = ""
            isEdited = false
+           
        }
 
+
+       inputField.value = ""
+       localStorage.setItem('todo-list', JSON.stringify(todoList))
        displayTodo()
-
-
 
     
     }
 })
 
 
-
-
-
 clearButton.addEventListener('click', () => {
     todoList.splice(0,todoList.length)
     localStorage.setItem('todo-list', JSON.stringify(todoList))
-
     displayTodo()
 })
 
-checkedChoice.addEventListener('click', () => {
-    checkedTasksContainer.classList.add('active')
-    tasks.classList.add('notactive')
-})
-
-displayAll.addEventListener('click', () => {
-    checkedTasksContainer.classList.remove('active')
-    tasks.classList.remove('notactive')
-})
 
 
 const deleteTask = id => {
@@ -125,6 +112,9 @@ const editTask = (id, taskName) => {
     taskId = id
     isEdited = true
 }
+
+
+
 
 
 

@@ -124,6 +124,11 @@ body {
         gap: 1rem;
     }
 
+    .active {
+        display: none;
+
+    }
+
     .task-menu {
         display: flex;
         flex-direction: column;
